@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Harish &amp; Sofiya — Wedding Invitation</title>
+<meta name="description" content="Join Harish &amp; Sofiya on 7 January 2027 at Gayatri Garden, Datia. You're warmly invited.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Italianno&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:215 45% 38%;
+  --primary-fg:210 50% 98%;
+  --bg:244 248 250;
+  --fg:33 48 69;
+  --muted:96 112 130;
+  --gold:125 147 171;
+  --border:210 28% 84%;
+  --cream:232 241 247;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --script:'Dancing Script',cursive;
+  --calli:'Italianno',cursive;
+  --caps:'Cinzel',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:rgb(var(--bg));color:rgb(var(--fg));
+  font-family:var(--serif);font-size:17px;line-height:1.6;
+  overflow-x:hidden;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c9a96e' fill-opacity='.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+
+/* ---------- loader ---------- */
+#loader{position:fixed;inset:0;z-index:9999;background:rgb(var(--bg));
+display:grid;place-items:center;transition:opacity .7s,visibility .7s}
+#loader.gone{opacity:0;visibility:hidden}
+#loader p{font-family:var(--caps);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:rgb(var(--gold))}
+#loader .dots{display:flex;gap:6px;justify-content:center;margin-top:14px}
+#loader .dots i{width:6px;height:6px;border-radius:50%;background:rgb(var(--gold));animation:pulse 1.2s infinite}
+#loader .dots i:nth-child(2){animation-delay:.18s}
+#loader .dots i:nth-child(3){animation-delay:.36s}
+@keyframes pulse{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1)}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:#dfe7ef}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:0 24px;transform:translateY(-8vh)}
+.hero-inner>*{opacity:0;animation:rise .9s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero .heart-top{color:#22364d;margin:0 auto 12px;width:26px;height:26px;opacity:0;transform:scale(.8);animation:pop .8s .3s forwards}
+@keyframes pop{to{opacity:1;transform:scale(1)}}
+.hero .intro{font-family:var(--calli);font-size:clamp(18px,6vw,26px);line-height:1.25;color:#22364d;
+text-shadow:0 2px 14px rgba(255,255,255,.6);white-space:pre-line;animation-delay:.5s}
+.hero .amp{font-family:var(--script);font-size:clamp(22px,7vw,32px);color:rgba(34,54,77,.85);margin:8px 0}
+.hero h1{font-family:var(--script);font-weight:600;line-height:.95;
+font-size:clamp(46px,15vw,104px);color:#22364d;text-shadow:0 2px 14px rgba(255,255,255,.6)}
+.hero h1:nth-of-type(1){animation-delay:.75s}
+.hero h1:nth-of-type(2){animation-delay:1.05s}
+
+/* ---------- floating controls ---------- */
+.ctrl{position:fixed;z-index:60;border:1px solid rgba(var(--primary)/.45);
+background:hsl(var(--primary));color:hsl(var(--primary-fg));
+border-radius:999px;padding:10px;display:grid;place-items:center;
+box-shadow:0 10px 24px -12px rgba(0,0,0,.5);cursor:pointer}
+.ctrl.mute{top:16px;right:16px}
+.ctrl.lang{bottom:16px;left:16px;padding:9px 16px;font-family:var(--caps);font-size:11px;letter-spacing:.15em;gap:7px;display:flex}
+
+/* ---------- shared section bits ---------- */
+.section{position:relative;padding:64px 24px;overflow:hidden}
+.section.cream{background:rgb(var(--cream))}
+.section h2{font-family:var(--calli);font-size:clamp(34px,10vw,52px);line-height:1.05;
+color:hsl(var(--primary));text-align:center;margin-bottom:10px;font-weight:400}
+.ico{width:28px;height:28px;margin:0 auto 12px;color:hsl(var(--primary))}
+.divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:22px 0 34px}
+.divider span{width:64px;height:1px;background:rgba(var(--primary)/.3)}
+.divider svg{width:10px;height:10px;color:hsl(var(--primary));opacity:.5}
+.wrap{max-width:640px;margin:0 auto}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- scratch card ---------- */
+.scratch-holder{position:relative;width:100%;max-width:260px;margin:0 auto;aspect-ratio:13/12}
+.scratch-holder .face,.scratch-holder canvas{position:absolute;inset:0;width:100%;height:100%;
+clip-path:url(#heartClip)}
+.face{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 22px;
+background:
+radial-gradient(circle at 1px 1px,rgba(46,71,107,.12) 1px,transparent 1.5px) 0 0/12px 12px,
+linear-gradient(160deg,#fbfdfe,#dde6ee 70%,#cad4e2)}
+.face .hi{font-family:var(--calli);font-size:20px;color:#3f638d;margin-bottom:2px}
+.face .dt{font-family:var(--caps);font-weight:700;font-size:15px;color:#1e2b3e}
+.face .dy{font-family:var(--calli);font-size:14px;color:#355582}
+.face .tm{font-size:10px;color:#475566;margin-top:4px;letter-spacing:.08em}
+.scratch-holder canvas{cursor:crosshair;touch-action:none;z-index:3}
+.heart-outline{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4}
+.btn-row{display:flex;justify-content:center;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:9px;border:0;cursor:pointer;
+background:hsl(var(--primary));color:hsl(var(--primary-fg));border-radius:999px;
+padding:13px 26px;font-family:var(--caps);font-size:11px;font-weight:600;
+letter-spacing:.18em;text-transform:uppercase;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+
+/* ---------- slideshow ---------- */
+.slides{position:relative;max-width:420px;margin:0 auto;aspect-ratio:1;border-radius:14px;
+overflow:hidden;box-shadow:0 24px 50px -24px rgba(20,40,70,.5);touch-action:pan-y;user-select:none}
+.slides .slide{position:absolute;inset:0;opacity:0;transition:opacity .6s;background:#dfe7ef}
+.slides .slide.on{opacity:1}
+.slides .slide img{width:100%;height:100%;object-fit:cover}
+.dots-nav{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:2}
+.dots-nav i{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.55);transition:.3s}
+.dots-nav i.on{width:18px;background:hsl(var(--primary))}
+
+/* ---------- countdown ---------- */
+.count{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.count div{text-align:center;min-width:62px}
+.count b{display:block;font-family:var(--caps);font-size:clamp(24px,8vw,40px);font-weight:700;
+background:rgba(var(--primary)/.1);border:1px solid rgba(var(--primary)/.2);
+border-radius:10px;padding:10px 4px;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.count span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgb(var(--muted))}
+
+/* ---------- venue ---------- */
+.venue-name{font-family:var(--caps);font-size:19px;font-weight:600;text-align:center}
+.venue-addr{text-align:center;color:rgb(var(--muted));margin-top:6px}
+.map{margin:26px auto;max-width:640px;border-radius:14px;overflow:hidden;
+box-shadow:0 20px 44px -24px rgba(20,40,70,.45)}
+.map iframe{width:100%;height:300px;border:0;display:block}
+.center{text-align:center}
+
+/* ---------- RSVP ---------- */
+form{max-width:440px;margin:0 auto;display:grid;gap:16px}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;letter-spacing:.04em}
+label i{color:#b4433f;font-style:normal}
+input,select,textarea{width:100%;font-family:var(--serif);font-size:16px;color:rgb(var(--fg));
+background:#fff;border:1px solid hsl(var(--border));border-radius:8px;padding:11px 13px}
+textarea{min-height:90px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:0;border-color:hsl(var(--primary));box-shadow:0 0 0 3px rgba(var(--primary)/.15)}
+form button{width:100%;justify-content:center}
+.note{font-size:13px;text-align:center;color:rgb(var(--muted));min-height:20px}
+
+/* ---------- closing + footer ---------- */
+.wave{width:100%;color:hsl(var(--primary));opacity:.35}
+.closing .big{font-family:var(--calli);font-size:clamp(30px,9vw,46px);color:hsl(var(--primary));line-height:1.2;text-align:center}
+.closing .who{font-family:var(--script);font-size:26px;text-align:center;color:rgb(var(--muted));margin-top:10px}
+footer{border-top:1px solid hsl(var(--border));padding:36px 24px;text-align:center;position:relative}
+footer .who{font-family:var(--script);font-size:20px;color:hsl(var(--primary))}
+footer .credit{font-size:12px;color:rgb(var(--muted));margin-top:10px}
+footer .credit a{color:hsl(var(--primary));text-decoration:none;font-weight:600;
+border-bottom:1px solid rgba(var(--primary)/.35);padding-bottom:1px}
+footer .credit a:hover{opacity:.75}
+
+/* ---------- watermark ---------- */
+.wm{position:fixed;inset:0;z-index:45;pointer-events:none;display:grid;
+grid-template-columns:25% 25%;justify-content:space-between;grid-auto-rows:16.6%}
+.wm div{display:grid;place-items:center;transform:rotate(-12deg);opacity:.11;
+font-family:var(--caps);font-size:11px;font-weight:600;letter-spacing:.2em;
+text-transform:uppercase;color:hsl(var(--primary))}
+</style>
+</head>
+<body>
+
+<div id="loader"><div style="text-align:center"><p>Preparing your invitation</p>
+<div class="dots"><i></i><i></i><i></i></div></div></div>
+
+<audio id="bgm" loop preload="auto" src="https://zareqia.com/__l5e/assets-v1/d58c0b7f-ae8f-429c-bb86-d0dee3a95d9b/track3.mp3"></audio>
+
+<button class="ctrl mute" id="mute" aria-label="Toggle music">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6a1.4 1.4 0 0 1-1 .4H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+</button>
+<button class="ctrl lang" id="lang">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg>
+  <span>Urdu</span>
+</button>
+
+<!-- HERO -->
+<header class="hero">
+  <video id="heroVid" src="https://zareqia.com/__l5e/assets-v1/1cd6c99f-b7bf-4fcc-b292-728b8b3090f3/demo-v3-royal-monarch.mp4"
+    playsinline autoplay muted loop preload="auto"></video>
+  <div class="hero-inner">
+    <svg class="heart-top" viewBox="0 0 24 24" fill="currentColor"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg>
+    <p class="intro" data-i18n="intro">We are honored to welcome you to
+the Wedding ceremony of..</p>
+    <h1 data-name="groom">Harish</h1>
+    <p class="amp">&amp;</p>
+    <h1 data-name="bride">Sofiya</h1>
+  </div>
+</header>
+
+<!-- MESSAGE -->
+<section class="section">
+  <div class="wrap reveal" style="text-align:center">
+    <div class="divider"><span></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg><span></span></div>
+    <p style="font-family:var(--calli);font-size:clamp(20px,6vw,28px);line-height:1.3;color:#20303f" data-i18n="message">
+      We are honored to welcome you to the Wedding ceremony of Harish &amp; Sofiya. As they begin their journey together in faith and love, we thank you for being part of this blessed occasion.
+    </p>
+    <div class="divider"><span></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg><span></span></div>
+  </div>
+</section>
+
+<!-- SCRATCH -->
+<section class="section">
+  <h2 class="reveal">Scratch to Reveal</h2>
+  <div class="wrap">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs><clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+        <path d="M0.5,0.96 C0.5,0.96 0.06,0.70 0.06,0.36 C0.06,0.18 0.20,0.06 0.32,0.06 C0.42,0.06 0.48,0.14 0.5,0.24 C0.52,0.14 0.58,0.06 0.68,0.06 C0.80,0.06 0.94,0.18 0.94,0.36 C0.94,0.70 0.5,0.96 0.5,0.96 Z"/>
+      </clipPath></defs>
+    </svg>
+    <div class="scratch-holder">
+      <div class="face">
+        <p class="hi">You're Invited!</p>
+        <p class="dt" id="scratchDate">January 7, 2027</p>
+        <p class="dy" id="scratchDay">Thursday</p>
+        <p class="tm" id="scratchTime">10:00 AM</p>
+      </div>
+      <canvas id="scratch"></canvas>
+      <svg class="heart-outline" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M50,96 C50,96 6,70 6,36 C6,18 20,6 32,6 C42,6 48,14 50,24 C52,14 58,6 68,6 C80,6 94,18 94,36 C94,70 50,96 50,96 Z"
+          fill="none" stroke="hsl(215 40% 38%)" stroke-width="1.2" vector-effect="non-scaling-stroke" opacity=".7"/>
+      </svg>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="saveDate">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8M3 10h18M16 19h6M19 16v6"/></svg>
+        Save the Date
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDESHOW -->
+<section class="section">
+  <div class="wrap reveal">
+    <div class="slides" id="slides">
+      <div class="slide on"><img src="https://zareqia.com/__l5e/assets-v1/a62cfc14-500e-4362-9e0a-80856ae200dc/slide-1.jpg" alt="Wedding moment 1"></div>
+      <div class="slide"><img src="https://zareqia.com/__l5e/assets-v1/4fd540fe-1c9b-49f4-8205-c1eb3ba90030/slide-2.jpg" alt="Wedding moment 2"></div>
+      <div class="slide"><img src="https://zareqia.com/__l5e/assets-v1/9b68e5d4-e534-494a-833c-22849e016870/slide-3.jpg" alt="Wedding moment 3"></div>
+      <div class="slide"><img src="https://zareqia.com/__l5e/assets-v1/757602f2-1c2a-43e4-9654-4dc179696a1f/slide-4.jpg" alt="Wedding moment 4"></div>
+      <div class="dots-nav" id="dotsNav"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="section cream">
+  <h2 class="reveal">Counting Down to Forever</h2>
+  <div class="divider"><span></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg><span></span></div>
+  <div class="count" id="count">
+    <div><b id="cd-d">0</b><span>Days</span></div>
+    <div><b id="cd-h">0</b><span>Hours</span></div>
+    <div><b id="cd-m">0</b><span>Minutes</span></div>
+    <div><b id="cd-s">0</b><span>Seconds</span></div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="section">
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+  <h2 class="reveal">Venue</h2>
+  <div class="divider"><span></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg><span></span></div>
+  <p class="venue-name" id="venueName">Gayatri Garden</p>
+  <p class="venue-addr" id="venueAddr">Purane Mahal ke pas, Taran Taran Road, Datia, Madhya Pradesh 475661</p>
+  <div class="map"><iframe title="Venue Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q=Gayatri+Garden,+Taran+Taran+Road,+Datia,+Madhya+Pradesh+475661&output=embed"></iframe></div>
+  <div class="center"><a href="https://www.google.com/maps/search/?api=1&query=Gayatri+Garden+Datia+Madhya+Pradesh" target="_blank" rel="noopener">
+    <button class="btn">View on Google Maps</button></a></div>
+</section>
+
+<!-- RSVP -->
+<section class="section cream">
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-9 5.7a2 2 0 0 1-2 0L2 7"/></svg>
+  <h2 class="reveal">RSVP</h2>
+  <div class="divider"><span></span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg><span></span></div>
+  <form id="rsvp">
+    <div><label for="rname">Your Name <i>*</i></label><input id="rname" required placeholder="Your full name"></div>
+    <div><label for="ratt">Will you be attending? <i>*</i></label>
+      <select id="ratt" required><option value="">Select...</option>
+        <option value="yes">Yes, I'll be there!</option>
+        <option value="no">Sorry, I can't make it</option></select></div>
+    <div><label for="rmsg">Your Message</label><textarea id="rmsg" placeholder="Write your wishes..."></textarea></div>
+    <button class="btn" type="submit">Send Message</button>
+    <p class="note" id="rnote"></p>
+  </form>
+</section>
+
+<!-- CLOSING -->
+<section class="section closing">
+  <div class="wrap">
+    <svg class="wave" viewBox="0 0 400 40" fill="none"><path d="M0 20Q50 5 100 20T200 20T300 20T400 20" stroke="currentColor"/></svg>
+    <p class="big">We can't wait to celebrate with you!</p>
+    <p class="who" id="closingNames">Harish &amp; Sofiya</p>
+    <svg class="wave" viewBox="0 0 400 40" fill="none" style="transform:rotate(180deg)"><path d="M0 20Q50 5 100 20T200 20T300 20T400 20" stroke="currentColor"/></svg>
+  </div>
+</section>
+
+<footer>
+  <p class="who" id="footNames">Harish &amp; Sofiya</p>
+  <p class="credit">Invitation by <a href="https://aariz.co.in" target="_blank" rel="noopener">Aariz</a></p>
+</footer>
+
+<div class="wm" aria-hidden="true"></div>
+
+<script>
+/* ============ EDIT ME ============ */
+const CONFIG = {
+  groom: "Harish Rayeen",
+  bride: "Sofiya Rayeen",
+  dateISO: "2027-01-07T10:00:00",
+  venue: "Gayatri Garden",
+  address: "Purane Mahal ke pas, Taran Taran Road, Datia, Madhya Pradesh 475661",
+  mapsLink: "https://www.google.com/maps/search/?api=1&query=Gayatri+Garden+Datia+Madhya+Pradesh"
+};
+/* ================================= */
+
+/* ---- loader ---- */
+addEventListener("load", () => setTimeout(() => document.getElementById("loader").classList.add("gone"), 900));
+
+/* ---- watermark (Aariz) ---- */
+document.querySelector(".wm").innerHTML = '<div>Aariz</div>'.repeat(12);
+
+/* ---- populate ---- */
+document.querySelectorAll('[data-name="groom"]').forEach(e => e.textContent = CONFIG.groom.split(" ")[0]);
+document.querySelectorAll('[data-name="bride"]').forEach(e => e.textContent = CONFIG.bride.split(" ")[0]);
+const full = CONFIG.groom + " & " + CONFIG.bride;
+document.getElementById("closingNames").textContent = full;
+document.getElementById("footNames").textContent = full;
+document.getElementById("venueName").textContent = CONFIG.venue;
+document.getElementById("venueAddr").textContent = CONFIG.address;
+document.querySelector(".map iframe").src =
+  "https://www.google.com/maps?q=" + encodeURIComponent(CONFIG.venue + ", " + CONFIG.address) + "&output=embed";
+document.querySelector(".center a").href = CONFIG.mapsLink;
+
+const d = new Date(CONFIG.dateISO);
+document.getElementById("scratchDate").textContent =
+  d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+document.getElementById("scratchDay").textContent =
+  d.toLocaleDateString("en-GB", { weekday: "long" });
+document.getElementById("scratchTime").textContent =
+  d.toLocaleTimeString("en-GB", { hour: "numeric", minute: "2-digit", hour12: true });
+
+/* ---- audio ---- */
+const bgm = document.getElementById("bgm"), muteBtn = document.getElementById("mute");
+const SILENT = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6a1.4 1.4 0 0 1-1 .4H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>';
+const SOUND = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6a1.4 1.4 0 0 1-1 .4H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+let playing = false;
+const startMusic = () => { bgm.volume = .5; bgm.play().then(() => { playing = true; muteBtn.innerHTML = SOUND; }).catch(() => {}); };
+document.body.addEventListener("click", () => { if (!playing) startMusic(); }, { once: true });
+muteBtn.addEventListener("click", e => {
+  e.stopPropagation();
+  if (playing) { bgm.pause(); playing = false; muteBtn.innerHTML = SILENT; } else startMusic();
+});
+const vid = document.getElementById("heroVid");
+vid.play().catch(() => {});
+document.body.addEventListener("click", () => vid.play().catch(() => {}), { once: true });
+
+/* ---- urdu ---- */
+const EN = {
+  intro: "We are honored to welcome you to\nthe Wedding ceremony of..",
+  message: "We are honored to welcome you to the Wedding ceremony of " + full +
+    ". As they begin their journey together in faith and love, we thank you for being part of this blessed occasion."
+};
+const UR = {
+  intro: "ہم آپ کو خوش آمدید کہنے پر مسرت محسوس کرتے ہیں\nشادی کی تقریب میں..",
+  message: "ہم آپ کو ہارش اور صفیہ کی شادی کی تقریب میں خوش آمدید کہتے ہیں۔"
+};
+let urdu = false;
+document.getElementById("lang").addEventListener("click", e => {
+  e.stopPropagation();
+  urdu = !urdu;
+  document.body.style.direction = urdu ? "rtl" : "ltr";
+  e.currentTarget.querySelector("span").textContent = urdu ? "English" : "Urdu";
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.textContent = (urdu ? UR : EN)[el.dataset.i18n];
+  });
+});
+
+/* ---- reveal ---- */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+}), { threshold: .15 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+/* ---- countdown ---- */
+const target = new Date(CONFIG.dateISO).getTime();
+const pad = n => String(Math.max(0, n)).padStart(2, "0");
+setInterval(() => {
+  const diff = target - Date.now(), g = v => Math.max(0, v);
+  document.getElementById("cd-d").textContent = g(Math.floor(diff / 864e5));
+  document.getElementById("cd-h").textContent = pad(Math.floor(diff / 36e5) % 24);
+  document.getElementById("cd-m").textContent = pad(Math.floor(diff / 6e4) % 60);
+  document.getElementById("cd-s").textContent = pad(Math.floor(diff / 1e3) % 60);
+}, 1000);
+
+/* ---- scratch ---- */
+(function () {
+  const c = document.getElementById("scratch"), ctx = c.getContext("2d");
+  let drawn = false, down = false, last = null, cleared = 0;
+  const paint = () => {
+    const r = c.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+    c.width = r.width * dpr; c.height = r.height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const g = ctx.createLinearGradient(0, 0, r.width, r.height);
+    g.addColorStop(0, "#c8b48a"); g.addColorStop(.35, "#efe3c8");
+    g.addColorStop(.55, "#b9a17a"); g.addColorStop(1, "#d8c9a6");
+    ctx.fillStyle = g; ctx.fillRect(0, 0, r.width, r.height);
+    ctx.fillStyle = "rgba(255,255,255,.35)";
+    ctx.font = "600 10px Cinzel, serif"; ctx.textAlign = "center";
+    ctx.fillText("SCRATCH HERE", r.width / 2, r.height / 2 + 4);
+    drawn = true; cleared = 0;
+  };
+  const pos = e => {
+    const r = c.getBoundingClientRect(), p = e.touches ? e.touches[0] : e;
+    return { x: p.clientX - r.left, y: p.clientY - r.top };
+  };
+  const scratch = e => {
+    if (!down) return;
+    const p = pos(e);
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.lineWidth = 26; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ctx.beginPath();
+    if (last) { ctx.moveTo(last.x, last.y); ctx.lineTo(p.x, p.y); ctx.stroke(); }
+    else { ctx.arc(p.x, p.y, 13, 0, 7); ctx.fill(); }
+    last = p;
+    if (++cleared > 40) { cleared = 0; check(); }
+    e.preventDefault();
+  };
+  const check = () => {
+    const d = ctx.getImageData(0, 0, c.width, c.height).data;
+    let t = 0, n = 0;
+    for (let i = 3; i < d.length; i += 40) { n++; if (d[i] < 40) t++; }
+    if (t / n > .55) {
+      c.style.transition = "opacity .6s"; c.style.opacity = "0";
+      setTimeout(() => c.style.pointerEvents = "none", 600);
+    }
+  };
+  const start = e => { down = true; last = null; scratch(e); };
+  const end = () => { down = false; last = null; };
+  c.addEventListener("mousedown", start); c.addEventListener("mousemove", scratch);
+  addEventListener("mouseup", end);
+  c.addEventListener("touchstart", start, { passive: false });
+  c.addEventListener("touchmove", scratch, { passive: false });
+  addEventListener("touchend", end);
+  addEventListener("resize", () => { if (drawn) paint(); });
+  setTimeout(paint, 120);
+})();
+
+/* ---- save the date ---- */
+document.getElementById("saveDate").addEventListener("click", () => {
+  const s = new Date(CONFIG.dateISO), e = new Date(s.getTime() + 3 * 36e5);
+  const f = x => x.toISOString().replace(/[-:]|\.\d{3}/g, "");
+  const ics = ["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT",
+    "SUMMARY:" + full + " Wedding", "DTSTART:" + f(s), "DTEND:" + f(e),
+    "LOCATION:" + CONFIG.venue + ", " + CONFIG.address,
+    "END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
+  a.download = "harish-sofiya-wedding.ics"; a.click();
+});
+
+/* ---- slideshow ---- */
+(function () {
+  const box = document.getElementById("slides"), slides = [...box.querySelectorAll(".slide")];
+  const nav = document.getElementById("dotsNav");
+  let i = 0, x0 = null;
+  slides.forEach((_, k) => {
+    const b = document.createElement("i");
+    if (!k) b.className = "on";
+    nav.appendChild(b);
+  });
+  const go = n => {
+    slides[i].classList.remove("on"); nav.children[i].classList.remove("on");
+    i = (n + slides.length) % slides.length;
+    slides[i].classList.add("on"); nav.children[i].classList.add("on");
+  };
+  setInterval(() => go(i + 1), 4500);
+  box.addEventListener("touchstart", e => x0 = e.touches[0].clientX, { passive: true });
+  box.addEventListener("touchend", e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+  box.addEventListener("mousedown", e => x0 = e.clientX);
+  addEventListener("mouseup", e => {
+    if (x0 === null) return;
+    const dx = e.clientX - x0;
+    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+})();
+
+/* ---- rsvp ---- */
+document.getElementById("rsvp").addEventListener("submit", e => {
+  e.preventDefault();
+  const data = {
+    name: document.getElementById("rname").value,
+    attending: document.getElementById("ratt").value,
+    message: document.getElementById("rmsg").value,
+    at: new Date().toISOString()
+  };
+  const all = JSON.parse(localStorage.getItem("rsvp") || "[]");
+  all.push(data); localStorage.setItem("rsvp", JSON.stringify(all));
+  document.getElementById("rnote").textContent = "Thank you, " + data.name + "! Your response is saved.";
+  e.target.reset();
+});
+</script>
+</body>
+</html>
