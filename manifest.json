@@ -1,0 +1,25 @@
+{
+  "name": "Harish Rayeen & Sofiya Rayeen — Engagement Invitation",
+  "short_name": "Harish & Sofiya",
+  "description": "In the name of Allah, join Harish Rayeen & Sofiya Rayeen on 6 December 2026 at 7:00 PM (After Maghrib) at Shubharambh Palace, Datia.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f8fa",
+  "theme_color": "#355a8c",
+  "icons": [
+    {
+      "src": "icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
