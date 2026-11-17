@@ -5,6 +5,38 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title id="pageTitle">Harish Rayeen &amp; Sofiya Rayeen — Engagement Invitation</title>
 <meta name="description" content="In the name of Allah, join Harish Rayeen &amp; Sofiya Rayeen on 6 December 2026 at 7:00 PM (After Maghrib) at Shubharambh Palace, Datia.">
+
+<!-- SEO, Canonical & Theme Metadata -->
+<link rel="canonical" href="https://harish-sofiya-engagement.aariz.co.in/">
+<meta name="theme-color" content="#355a8c">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Aariz">
+
+<!-- Open Graph / WhatsApp & Social Sharing Metadata -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Harish Rayeen &amp; Sofiya Rayeen Engagement">
+<meta property="og:title" content="Harish Rayeen &amp; Sofiya Rayeen — Engagement Invitation">
+<meta property="og:description" content="In the name of Allah, join Harish Rayeen &amp; Sofiya Rayeen on 6 December 2026 at 7:00 PM (After Maghrib) at Shubharambh Palace, Datia.">
+<meta property="og:url" content="https://harish-sofiya-engagement.aariz.co.in/">
+<!-- PLACEHOLDER IMAGE PATH: Upload a 1200x630 PNG/JPG H & S royal logo image at /og-hs-logo.png on your domain -->
+<meta property="og:image" content="https://harish-sofiya-engagement.aariz.co.in/og-hs-logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="H &amp; S Royal Monogram — Harish Rayeen &amp; Sofiya Rayeen Engagement Invitation">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card Metadata -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Harish Rayeen &amp; Sofiya Rayeen — Engagement Invitation">
+<meta name="twitter:description" content="In the name of Allah, join Harish Rayeen &amp; Sofiya Rayeen on 6 December 2026 at 7:00 PM (After Maghrib) at Shubharambh Palace, Datia.">
+<!-- PLACEHOLDER IMAGE PATH: Upload a 1200x630 PNG/JPG H & S royal logo image at /og-hs-logo.png on your domain -->
+<meta name="twitter:image" content="https://harish-sofiya-engagement.aariz.co.in/og-hs-logo.png">
+
+<!-- PWA Manifest & Icons -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icon-192.svg">
+<link rel="apple-touch-icon" href="icon-192.svg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Italianno&family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,6 +48,8 @@
   --fg:33 48 69;
   --muted:96 112 130;
   --gold:125 147 171;
+  --royal-gold:#c5a059;
+  --royal-gold-light:#e5cc92;
   --border:210 28% 84%;
   --cream:232 241 247;
   --serif:'Cormorant Garamond',Georgia,serif;
@@ -66,6 +100,8 @@ body.lang-ur input,
 body.lang-ur select,
 body.lang-ur textarea,
 body.lang-ur .note,
+body.lang-ur .offline-rsvp-note,
+body.lang-ur .pwa-install,
 body.lang-ur .modal-box h3,
 body.lang-ur .modal-box p{
   font-family:var(--urdu) !important;
@@ -105,6 +141,8 @@ body.lang-hi input,
 body.lang-hi select,
 body.lang-hi textarea,
 body.lang-hi .note,
+body.lang-hi .offline-rsvp-note,
+body.lang-hi .pwa-install,
 body.lang-hi .modal-box h3,
 body.lang-hi .modal-box p{
   font-family:var(--hindi) !important;
@@ -129,8 +167,42 @@ display:grid;place-items:center;transition:opacity .7s,visibility .7s}
 #loader .dots i:nth-child(3){animation-delay:.36s}
 @keyframes pulse{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1)}}
 
-/* ---------- hero & tap-to-open ---------- */
-.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:#dfe7ef;cursor:pointer}
+/* ---------- [FEATURE 1] Royal Golden Frame Animation ---------- */
+.royal-frame{
+  position:absolute;
+  inset:12px;
+  z-index:6;
+  pointer-events:none;
+  border:1.5px solid rgba(197,160,89,.68);
+  box-shadow:inset 0 0 0 4px rgba(244,248,250,.22),inset 0 0 0 5px rgba(197,160,89,.42),0 0 24px rgba(197,160,89,.18);
+  animation:frameGlow 4.5s ease-in-out infinite;
+}
+@media(min-width:640px){.royal-frame{inset:20px}}
+@keyframes frameGlow{
+  0%,100%{border-color:rgba(197,160,89,.62);box-shadow:inset 0 0 0 4px rgba(244,248,250,.2),inset 0 0 0 5px rgba(197,160,89,.38),0 0 18px rgba(197,160,89,.14)}
+  50%{border-color:rgba(229,204,146,.95);box-shadow:inset 0 0 0 4px rgba(244,248,250,.32),inset 0 0 0 5px rgba(229,204,146,.68),0 0 30px rgba(197,160,89,.32)}
+}
+.royal-corner{
+  position:absolute;
+  width:52px;
+  height:52px;
+  color:var(--royal-gold);
+  opacity:.9;
+  filter:drop-shadow(0 1px 4px rgba(255,255,255,.7));
+  animation:floralBreathe 5s ease-in-out infinite;
+}
+@media(min-width:640px){.royal-corner{width:68px;height:68px}}
+.royal-corner.tl{top:-2px;left:-2px}
+.royal-corner.tr{top:-2px;right:-2px;transform:scaleX(-1)}
+.royal-corner.bl{bottom:-2px;left:-2px;transform:scaleY(-1)}
+.royal-corner.br{bottom:-2px;right:-2px;transform:scale(-1,-1)}
+@keyframes floralBreathe{
+  0%,100%{opacity:.82}
+  50%{opacity:1}
+}
+
+/* ---------- [FEATURE 2] Hero & Animated Envelope Opening ---------- */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:#dfe7ef;cursor:pointer;perspective:1400px}
 .hero.opened{cursor:default}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 /* Soft radial mist mask to seamlessly cover baked-in video center watermark while keeping floral vines */
@@ -142,39 +214,70 @@ display:grid;place-items:center;transition:opacity .7s,visibility .7s}
   pointer-events:none;
   background:radial-gradient(ellipse 350px 240px at 50% 44%, rgba(235,241,247,.97) 0%, rgba(235,241,247,.88) 54%, rgba(235,241,247,0) 100%);
 }
-.hero-cover{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;
-background:radial-gradient(circle at center,rgba(244,248,250,.85),rgba(223,231,239,.94));
-backdrop-filter:blur(4px);transition:opacity .8s ease,visibility .8s ease;text-align:center;padding:24px}
-.hero.opened .hero-cover{opacity:0;visibility:hidden;pointer-events:none}
-.cover-moon{width:44px;height:44px;color:hsl(var(--primary));margin-bottom:12px}
+.hero-cover{
+  position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(circle at center,rgba(244,248,250,.92),rgba(221,231,241,.97));
+  backdrop-filter:blur(4px);
+  transform-style:preserve-3d;
+  transition:opacity .75s ease .32s,transform .85s cubic-bezier(.22,1,.36,1) .18s,visibility .85s ease .32s;
+  text-align:center;padding:32px;overflow:hidden;
+}
+.envelope-flap{
+  position:absolute;top:0;left:0;right:0;height:44%;
+  background:linear-gradient(180deg,rgba(218,230,242,.98),rgba(236,243,249,.95));
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  border-bottom:2px solid rgba(197,160,89,.55);
+  box-shadow:0 14px 28px -12px rgba(34,54,77,.25);
+  transform-origin:top center;
+  transition:transform .8s cubic-bezier(.4,0,.2,1);
+  pointer-events:none;
+  z-index:1;
+}
+.envelope-flap::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 48%,rgba(197,160,89,.45) 49.5%,rgba(197,160,89,.45) 50.5%,transparent 52%),
+             linear-gradient(225deg,transparent 48%,rgba(197,160,89,.45) 49.5%,rgba(197,160,89,.45) 50.5%,transparent 52%);
+}
+.envelope-pocket{
+  position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:
+    linear-gradient(to top right,rgba(212,225,238,.52) 0%,rgba(212,225,238,.52) 49.6%,rgba(197,160,89,.35) 50%,transparent 50.4%) bottom left/50% 56% no-repeat,
+    linear-gradient(to top left,rgba(212,225,238,.52) 0%,rgba(212,225,238,.52) 49.6%,rgba(197,160,89,.35) 50%,transparent 50.4%) bottom right/50% 56% no-repeat;
+}
+.envelope-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.hero.opened .envelope-flap{transform:rotateX(180deg)}
+.hero.opened .hero-cover{opacity:0;transform:translateY(26px) scale(1.03);visibility:hidden;pointer-events:none}
+
+.cover-moon{width:44px;height:44px;color:var(--royal-gold);margin-bottom:10px;filter:drop-shadow(0 2px 8px rgba(197,160,89,.3))}
 .cover-bismillah{font-family:var(--arabic);font-size:clamp(22px,6vw,30px);color:#22364d;margin-bottom:10px}
-.cover-names{font-family:var(--script);font-size:clamp(34px,9vw,54px);color:#22364d;line-height:1.1;margin-bottom:18px}
-.cover-tap{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:999px;
+.cover-names{font-family:var(--script);font-size:clamp(34px,9vw,54px);color:#22364d;line-height:1.1;margin-bottom:20px}
+.cover-tap{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:999px;
 background:hsl(var(--primary));color:hsl(var(--primary-fg));font-family:var(--caps);
-font-size:11px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 12px 28px -10px rgba(34,54,77,.6);
+border:1.5px solid var(--royal-gold-light);
+font-size:11px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 12px 28px -10px rgba(34,54,77,.65),0 0 0 4px rgba(197,160,89,.2);
 animation:tapPulse 2s infinite}
 @keyframes tapPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 
-.hero-inner{position:relative;z-index:2;text-align:center;padding:0 24px;transform:translateY(-4vh)}
-.hero-inner>*{opacity:0}
-.hero.opened .hero-inner>*{animation:rise .9s forwards}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:0 28px;transform:translateY(-4vh)}
+.hero-inner>*{opacity:0;transform:translateY(14px)}
+.hero.opened .hero-inner>*{animation:rise .95s cubic-bezier(.22,1,.36,1) forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 .hero .moon-top{color:#22364d;margin:0 auto 10px;width:32px;height:32px;opacity:0;transform:scale(.8)}
-.hero.opened .moon-top{animation:pop .8s .2s forwards}
+.hero.opened .moon-top{animation:pop .8s .35s forwards}
 @keyframes pop{to{opacity:1;transform:scale(1)}}
 .hero .bismillah-hero{font-family:var(--arabic);font-size:clamp(20px,5.5vw,26px);color:#22364d;margin-bottom:6px;
-text-shadow:0 2px 14px rgba(255,255,255,.7);animation-delay:.35s}
+text-shadow:0 2px 14px rgba(255,255,255,.7);animation-delay:.45s}
 .hero .intro{font-family:var(--calli);font-size:clamp(19px,5.5vw,26px);line-height:1.25;color:#22364d;
-text-shadow:0 2px 14px rgba(255,255,255,.6);white-space:pre-line;animation-delay:.5s}
-.hero .amp{font-family:var(--script);font-size:clamp(22px,6.5vw,30px);color:rgba(34,54,77,.85);margin:6px 0;animation-delay:.9s}
+text-shadow:0 2px 14px rgba(255,255,255,.6);white-space:pre-line;animation-delay:.6s}
+.hero .amp{font-family:var(--script);font-size:clamp(22px,6.5vw,30px);color:rgba(34,54,77,.85);margin:6px 0;animation-delay:1s}
 .hero h1{font-family:var(--script);font-weight:600;line-height:.98;
 font-size:clamp(42px,13vw,92px);color:#22364d;text-shadow:0 2px 14px rgba(255,255,255,.6)}
-.hero h1:nth-of-type(1){animation-delay:.7s}
-.hero h1:nth-of-type(2){animation-delay:1.05s}
+.hero h1:nth-of-type(1){animation-delay:.8s}
+.hero h1:nth-of-type(2){animation-delay:1.15s}
 .hero .parent-line{font-family:var(--serif);font-size:clamp(13px,3.6vw,16px);font-style:italic;color:#22364d;
 text-shadow:0 1px 10px rgba(255,255,255,.8);margin-top:2px}
-.hero .parent-line.groom-p{animation-delay:.82s}
-.hero .parent-line.bride-p{animation-delay:1.18s}
+.hero .parent-line.groom-p{animation-delay:.92s}
+.hero .parent-line.bride-p{animation-delay:1.28s}
 
 /* ---------- scroll down cue ---------- */
 .scroll-cue{position:absolute;bottom:68px;left:50%;transform:translateX(-50%);z-index:4;
@@ -185,6 +288,41 @@ text-shadow:0 1px 10px rgba(255,255,255,.85)}
 .scroll-cue span{font-family:var(--caps);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
 .scroll-cue svg{width:18px;height:18px;animation:bounceDown 1.6s infinite}
 @keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ---------- [FEATURE 3] Floating Golden Particles ---------- */
+.golden-particles{
+  position:fixed;
+  inset:0;
+  z-index:44;
+  pointer-events:none;
+  overflow:hidden;
+}
+.g-particle{
+  position:absolute;
+  bottom:-20px;
+  color:var(--royal-gold);
+  opacity:0;
+  will-change:transform,opacity;
+  animation:floatGold var(--dur,16s) linear var(--delay,0s) infinite;
+}
+.g-particle.dot{
+  width:var(--sz,4px);
+  height:var(--sz,4px);
+  border-radius:50%;
+  background:radial-gradient(circle,var(--royal-gold-light),var(--royal-gold));
+  box-shadow:0 0 6px rgba(197,160,89,.55);
+}
+.g-particle.star{
+  width:var(--sz,10px);
+  height:var(--sz,10px);
+}
+@keyframes floatGold{
+  0%{transform:translate3d(0,0,0) rotate(0deg) scale(.6);opacity:0}
+  15%{opacity:var(--op,.42)}
+  50%{transform:translate3d(var(--drift,18px),-50vh,0) rotate(180deg) scale(1);opacity:var(--op,.48)}
+  85%{opacity:var(--op,.35)}
+  100%{transform:translate3d(calc(var(--drift,18px) * -0.6),-105vh,0) rotate(360deg) scale(.7);opacity:0}
+}
 
 /* ---------- floating controls ---------- */
 .ctrl{position:fixed;z-index:60;border:1px solid rgba(var(--primary)/.45);
@@ -201,17 +339,39 @@ padding:6px 11px;font-family:var(--caps);font-size:11px;letter-spacing:.06em;cur
 .ctrl.wa{bottom:16px;right:16px;width:44px;height:44px;padding:0;text-decoration:none;transition:transform .25s}
 .ctrl.wa:hover{transform:scale(1.06)}
 
-/* ---------- shared section bits ---------- */
+/* ---------- [FEATURE 7] Lightweight PWA Install Button ---------- */
+.ctrl.pwa-install{
+  bottom:64px;
+  left:16px;
+  padding:8px 14px;
+  font-family:var(--caps);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border:1px solid rgba(229,204,146,.75);
+  transition:transform .25s,opacity .25s;
+}
+.ctrl.pwa-install[hidden]{display:none}
+.ctrl.pwa-install:hover{transform:translateY(-1px)}
+
+/* ---------- [FEATURE 4] Shared Section Bits & Premium Transitions ---------- */
 .section{position:relative;padding:64px 24px;overflow:hidden}
 .section.cream{background:rgb(var(--cream))}
 .section h2{font-family:var(--calli);font-size:clamp(34px,10vw,52px);line-height:1.05;
 color:hsl(var(--primary));text-align:center;margin-bottom:10px;font-weight:400}
 .ico{width:28px;height:28px;margin:0 auto 12px;color:hsl(var(--primary))}
 .divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:22px 0 34px}
-.divider span{width:64px;height:1px;background:rgba(var(--primary)/.3)}
-.divider svg{width:12px;height:12px;color:hsl(var(--primary));opacity:.65}
+.divider span{width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--royal-gold),rgba(var(--primary)/.4));transform:scaleX(.35);transition:transform .9s cubic-bezier(.22,1,.36,1)}
+.divider span:last-child{background:linear-gradient(270deg,transparent,var(--royal-gold),rgba(var(--primary)/.4))}
+.divider svg{width:12px;height:12px;color:hsl(var(--primary));opacity:.65;transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .9s}
+.section.sec-visible .divider span{transform:scaleX(1)}
+.section.sec-visible .divider svg{transform:rotate(360deg);opacity:.9}
 .wrap{max-width:640px;margin:0 auto}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
+.reveal{opacity:0;transform:translateY(24px) scale(.985);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- islamic invitation block ---------- */
@@ -220,11 +380,11 @@ color:hsl(var(--primary));text-align:center;margin-bottom:10px;font-weight:400}
 .salam-line{font-family:var(--caps);font-size:13px;font-weight:600;letter-spacing:.12em;color:hsl(var(--primary));margin-bottom:14px}
 .invite-msg{font-family:var(--calli);font-size:clamp(21px,6vw,29px);line-height:1.35;color:#20303f}
 .quran-box{margin:22px auto 0;padding:16px 20px;border-radius:12px;background:rgba(var(--primary)/.06);
-border:1px solid rgba(var(--primary)/.18);max-width:520px}
+border:1px solid rgba(197,160,89,.35);max-width:520px}
 .quran-ar{font-family:var(--arabic);font-size:21px;color:hsl(var(--primary));margin-bottom:4px}
 .quran-tr{font-style:italic;font-size:15px;color:rgb(var(--fg))}
 
-/* ---------- scratch card ---------- */
+/* ---------- [FEATURE 6] Scratch Card & Animated Heart Reveal ---------- */
 .scratch-holder{position:relative;width:100%;max-width:270px;margin:0 auto;aspect-ratio:13/12}
 .scratch-holder .face,.scratch-holder canvas{position:absolute;inset:0;width:100%;height:100%;
 clip-path:url(#heartClip)}
@@ -237,7 +397,31 @@ linear-gradient(160deg,#fbfdfe,#dde6ee 70%,#cad4e2)}
 .face .dy{font-family:var(--calli);font-size:14px;color:#355582}
 .face .tm{font-size:10px;font-weight:600;color:#2c4260;margin-top:4px;letter-spacing:.05em;line-height:1.35}
 .scratch-holder canvas{cursor:crosshair;touch-action:none;z-index:3}
-.heart-outline{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4}
+.heart-outline{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.scratch-holder.revealed .heart-outline{animation:heartBeatReveal 1.3s ease-out}
+@keyframes heartBeatReveal{
+  0%{transform:scale(1)}
+  22%{transform:scale(1.1)}
+  45%{transform:scale(.97)}
+  70%{transform:scale(1.05)}
+  100%{transform:scale(1)}
+}
+.heart-burst{position:absolute;inset:-24px;pointer-events:none;z-index:5;overflow:visible}
+.burst-heart{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:16px;
+  height:16px;
+  color:var(--royal-gold);
+  opacity:0;
+  animation:heartFloatOut 1.8s cubic-bezier(.16,1,.3,1) var(--d,0s) forwards;
+}
+@keyframes heartFloatOut{
+  0%{transform:translate(-50%,-50%) scale(.3);opacity:0}
+  20%{opacity:.95}
+  100%{transform:translate(calc(-50% + var(--tx,0px)),calc(-50% + var(--ty,-80px))) scale(1.1) rotate(var(--rot,15deg));opacity:0}
+}
 .btn-row{display:flex;justify-content:center;margin-top:30px}
 .btn{display:inline-flex;align-items:center;gap:9px;border:0;cursor:pointer;
 background:hsl(var(--primary));color:hsl(var(--primary-fg));border-radius:999px;
@@ -260,7 +444,7 @@ box-shadow:0 20px 44px -24px rgba(20,40,70,.45)}
 .map iframe{width:100%;height:300px;border:0;display:block}
 .center{text-align:center}
 
-/* ---------- RSVP ---------- */
+/* ---------- RSVP & Offline Notice ---------- */
 form{max-width:440px;margin:0 auto;display:grid;gap:16px}
 label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;letter-spacing:.04em}
 label i{color:#b4433f;font-style:normal}
@@ -270,12 +454,32 @@ textarea{min-height:90px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:0;border-color:hsl(var(--primary));box-shadow:0 0 0 3px rgba(var(--primary)/.15)}
 form button{width:100%;justify-content:center}
 .note{font-size:13px;text-align:center;color:rgb(var(--muted));min-height:20px}
+.offline-rsvp-note{
+  font-size:13px;
+  text-align:center;
+  color:#7c4d12;
+  background:#fef6e7;
+  border:1px solid rgba(197,160,89,.55);
+  border-radius:8px;
+  padding:9px 12px;
+}
+.offline-rsvp-note[hidden]{display:none}
+
+/* ---------- [FEATURE 5] Confetti Canvas ---------- */
+#confettiCanvas{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:150;
+  pointer-events:none;
+}
 
 /* ---------- closing + footer ---------- */
 .wave{width:100%;color:hsl(var(--primary));opacity:.35}
 .closing .big{font-family:var(--calli);font-size:clamp(30px,9vw,46px);color:hsl(var(--primary));line-height:1.2;text-align:center}
 .closing .who{font-family:var(--script);font-size:26px;text-align:center;color:rgb(var(--muted));margin-top:10px}
-footer{border-top:1px solid hsl(var(--border));padding:36px 24px 80px;text-align:center;position:relative}
+footer{border-top:1px solid hsl(var(--border));padding:36px 24px 96px;text-align:center;position:relative}
 footer .who{font-family:var(--script);font-size:22px;color:hsl(var(--primary))}
 footer .foot-contact{font-size:14px;color:rgb(var(--fg));margin-top:10px}
 footer .foot-contact a{color:hsl(var(--primary));text-decoration:none;font-weight:600;
@@ -303,6 +507,15 @@ box-shadow:0 24px 60px -20px rgba(15,28,46,.6)}
 .modal-box p{font-size:15px;color:rgb(var(--muted));margin-bottom:18px}
 .modal-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .btn-ghost{background:transparent;color:hsl(var(--primary));border:1px solid rgba(var(--primary)/.35);box-shadow:none}
+
+/* ---------- Reduced Motion Accessibility ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .royal-frame,.royal-corner,.cover-tap,.scroll-cue svg,#loader .dots i{animation:none !important}
+  .golden-particles{display:none !important}
+  .hero-cover,.envelope-flap,.reveal,.divider span,.divider svg{transition:none !important;animation:none !important}
+  .hero.opened .hero-inner>*{animation:none !important;opacity:1;transform:none}
+}
 </style>
 </head>
 <body class="locked">
@@ -316,6 +529,12 @@ box-shadow:0 24px 60px -20px rgba(15,28,46,.6)}
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6a1.4 1.4 0 0 1-1 .4H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
 </button>
 
+<!-- Lightweight PWA Install Button -->
+<button type="button" class="ctrl pwa-install" id="pwaInstallBtn" hidden aria-label="Install Invitation App">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  <span id="pwaInstallText">Install App</span>
+</button>
+
 <div class="lang-bar" role="group" aria-label="Language switcher">
   <button type="button" class="lang-btn active" data-lang="en">English</button>
   <button type="button" class="lang-btn" data-lang="ur">اردو</button>
@@ -326,16 +545,56 @@ box-shadow:0 24px 60px -20px rgba(15,28,46,.6)}
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.96 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.91-1.25-4.81-4.18-4.96-4.38-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.01-2.42.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.15.07.15.12.32.02.51-.1.19-.15.32-.29.49-.15.17-.31.38-.44.51-.15.14-.3.3-.13.59.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.29 2.33 1.44.29.15.46.12.63-.07.17-.19.73-.85.92-1.14.19-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
 </a>
 
+<!-- Floating Golden Particles Layer -->
+<div class="golden-particles" id="goldenParticles" aria-hidden="true"></div>
+
 <!-- HERO -->
 <header class="hero" id="hero">
   <video id="heroVid" src="https://zareqia.com/__l5e/assets-v1/1cd6c99f-b7bf-4fcc-b292-728b8b3090f3/demo-v3-royal-monarch.mp4"
     playsinline muted preload="auto"></video>
 
+  <!-- Royal Golden Ornamental Frame -->
+  <div class="royal-frame" aria-hidden="true">
+    <svg class="royal-corner tl" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.3">
+      <path d="M4 66V18C4 10.3 10.3 4 18 4h48"/>
+      <path d="M10 56V22c0-6.6 5.4-12 12-12h34" stroke-opacity=".65"/>
+      <path d="M16 16c6 0 11 5 11 11-6 0-11-5-11-11z" fill="currentColor" fill-opacity=".28"/>
+      <path d="M27 12c4 0 7 3 7 7-4 0-7-3-7-7zM12 27c4 0 7 3 7 7-4 0-7-3-7-7z" fill="currentColor" fill-opacity=".22"/>
+      <circle cx="14" cy="14" r="2.2" fill="currentColor"/>
+    </svg>
+    <svg class="royal-corner tr" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.3">
+      <path d="M4 66V18C4 10.3 10.3 4 18 4h48"/>
+      <path d="M10 56V22c0-6.6 5.4-12 12-12h34" stroke-opacity=".65"/>
+      <path d="M16 16c6 0 11 5 11 11-6 0-11-5-11-11z" fill="currentColor" fill-opacity=".28"/>
+      <path d="M27 12c4 0 7 3 7 7-4 0-7-3-7-7zM12 27c4 0 7 3 7 7-4 0-7-3-7-7z" fill="currentColor" fill-opacity=".22"/>
+      <circle cx="14" cy="14" r="2.2" fill="currentColor"/>
+    </svg>
+    <svg class="royal-corner bl" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.3">
+      <path d="M4 66V18C4 10.3 10.3 4 18 4h48"/>
+      <path d="M10 56V22c0-6.6 5.4-12 12-12h34" stroke-opacity=".65"/>
+      <path d="M16 16c6 0 11 5 11 11-6 0-11-5-11-11z" fill="currentColor" fill-opacity=".28"/>
+      <path d="M27 12c4 0 7 3 7 7-4 0-7-3-7-7zM12 27c4 0 7 3 7 7-4 0-7-3-7-7z" fill="currentColor" fill-opacity=".22"/>
+      <circle cx="14" cy="14" r="2.2" fill="currentColor"/>
+    </svg>
+    <svg class="royal-corner br" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.3">
+      <path d="M4 66V18C4 10.3 10.3 4 18 4h48"/>
+      <path d="M10 56V22c0-6.6 5.4-12 12-12h34" stroke-opacity=".65"/>
+      <path d="M16 16c6 0 11 5 11 11-6 0-11-5-11-11z" fill="currentColor" fill-opacity=".28"/>
+      <path d="M27 12c4 0 7 3 7 7-4 0-7-3-7-7zM12 27c4 0 7 3 7 7-4 0-7-3-7-7z" fill="currentColor" fill-opacity=".22"/>
+      <circle cx="14" cy="14" r="2.2" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- Animated Envelope Opening Cover -->
   <div class="hero-cover" id="heroCover">
-    <svg class="cover-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2.1a9.9 9.9 0 1 0 9.4 13.1 8 8 0 0 1-9.4-13.1z"/><path d="M17.5 4.5l.7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6-1.2-1.1 1.6-.2z"/></svg>
-    <p class="cover-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-    <p class="cover-names" id="coverNames">Harish Rayeen &amp; Sofiya Rayeen</p>
-    <span class="cover-tap" id="coverTap">Tap to Open Invitation</span>
+    <div class="envelope-flap" aria-hidden="true"></div>
+    <div class="envelope-pocket" aria-hidden="true"></div>
+    <div class="envelope-content">
+      <svg class="cover-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2.1a9.9 9.9 0 1 0 9.4 13.1 8 8 0 0 1-9.4-13.1z"/><path d="M17.5 4.5l.7 1.5 1.6.2-1.2 1.1.3 1.6-1.4-.8-1.4.8.3-1.6-1.2-1.1 1.6-.2z"/></svg>
+      <p class="cover-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+      <p class="cover-names" id="coverNames">Harish Rayeen &amp; Sofiya Rayeen</p>
+      <span class="cover-tap" id="coverTap">Tap to Open Invitation</span>
+    </div>
   </div>
 
   <div class="hero-inner">
@@ -384,7 +643,7 @@ We are honored to welcome you to the Engagement ceremony of</p>
         <path d="M0.5,0.96 C0.5,0.96 0.06,0.70 0.06,0.36 C0.06,0.18 0.20,0.06 0.32,0.06 C0.42,0.06 0.48,0.14 0.5,0.24 C0.52,0.14 0.58,0.06 0.68,0.06 C0.80,0.06 0.94,0.18 0.94,0.36 C0.94,0.70 0.5,0.96 0.5,0.96 Z"/>
       </clipPath></defs>
     </svg>
-    <div class="scratch-holder">
+    <div class="scratch-holder" id="scratchHolder">
       <div class="face">
         <p class="hi" id="scratchHi">You're Invited!</p>
         <p class="dt" id="scratchDate">6 December 2026</p>
@@ -396,6 +655,7 @@ We are honored to welcome you to the Engagement ceremony of</p>
         <path d="M50,96 C50,96 6,70 6,36 C6,18 20,6 32,6 C42,6 48,14 50,24 C52,14 58,6 68,6 C80,6 94,18 94,36 C94,70 50,96 50,96 Z"
           fill="none" stroke="hsl(215 40% 38%)" stroke-width="1.2" vector-effect="non-scaling-stroke" opacity=".7"/>
       </svg>
+      <div class="heart-burst" id="heartBurst" aria-hidden="true"></div>
     </div>
     <div class="btn-row">
       <button class="btn" id="saveDate">
@@ -439,6 +699,7 @@ We are honored to welcome you to the Engagement ceremony of</p>
   <form id="rsvp" action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="6b50ffdc-062a-4d0c-aa1a-ddc593fe18f4">
     <input type="hidden" name="subject" value="Engagement RSVP — Harish Rayeen & Sofiya Rayeen">
+    <p class="offline-rsvp-note" id="rsvpOfflineNote" hidden>You are currently offline. An active internet connection is required to submit your RSVP response.</p>
     <div><label for="rname"><span id="lblName">Your Name</span> <i>*</i></label><input id="rname" name="name" required placeholder="Your full name"></div>
     <div><label for="rphone"><span id="lblPhone">Mobile Number</span> <i>*</i></label><input id="rphone" name="phone" type="tel" required placeholder="Your mobile number"></div>
     <div><label for="ratt"><span id="lblAtt">Will you be attending?</span> <i>*</i></label>
@@ -498,6 +759,7 @@ const I18N = {
     cls: "",
     pageTitle: "Harish Rayeen & Sofiya Rayeen — Engagement Invitation",
     loaderText: "Preparing your invitation",
+    pwaInstallText: "Install App",
     coverNames: "Harish Rayeen & Sofiya Rayeen",
     coverTap: "Tap to Open Invitation",
     heroIntro: "In the name of Allah, the Most Gracious, the Most Merciful\nWe are honored to welcome you to the Engagement ceremony of",
@@ -527,6 +789,7 @@ const I18N = {
     venueAddr: "Near Govt Rest House, Gwalior - Jhansi Road, Highway, Datia, Madhya Pradesh 475661",
     mapsBtn: "View on Google Maps",
     rsvpHeading: "RSVP",
+    rsvpOffline: "You are currently offline. An active internet connection is required to submit your RSVP response.",
     lblName: "Your Name",
     phName: "Your full name",
     lblPhone: "Mobile Number",
@@ -539,7 +802,7 @@ const I18N = {
     phMsg: "Write your wishes and Duas...",
     rsubmit: "Send Message",
     sending: "Sending...",
-    sentOk: "JazakAllah Khair! Your response has been sent.",
+    sentOk: "JazakAllah Khair, {name}! Your RSVP & Duas have been received.",
     sentErr: "Something went wrong. Please try again.",
     closingBig: "We can't wait to celebrate with you, InshaAllah!",
     coupleFull: "Harish Rayeen & Sofiya Rayeen",
@@ -556,6 +819,7 @@ const I18N = {
     cls: "lang-ur",
     pageTitle: "حارث رعین اور صفیہ رعین — دعوتِ منگنی",
     loaderText: "آپ کا دعوت نامہ تیار ہو رہا ہے",
+    pwaInstallText: "ایپ انسٹال کریں",
     coverNames: "حارث رعین اور صفیہ رعین",
     coverTap: "دعوت نامہ کھولنے کے لیے یہاں کلک کریں",
     heroIntro: "اللہ کے نام سے شروع جو نہایت مہربان رحم والا ہے\nہم آپ کو پرخلوص خوش آمدید کہتے ہیں تقریبِ منگنی میں",
@@ -585,6 +849,7 @@ const I18N = {
     venueAddr: "نزد گورنمنٹ ریسٹ ہاؤس، گوالیار جھانسی روڈ، ہائی وے، دتیا، مدھیہ پردیش 475661",
     mapsBtn: "گوگل میپس پر دیکھیں",
     rsvpHeading: "جوابِ دعوت",
+    rsvpOffline: "آپ اس وقت آف لائن ہیں۔ جوابِ دعوت بھیجنے کے لیے انٹرنیٹ کنکشن ضروری ہے۔",
     lblName: "آپ کا نام",
     phName: "اپنا پورا نام لکھیں",
     lblPhone: "موبائل نمبر",
@@ -597,7 +862,7 @@ const I18N = {
     phMsg: "اپنی نیک تمنائیں اور دعائیں لکھیں...",
     rsubmit: "پیغام بھیجیں",
     sending: "بھیجا جا رہا ہے...",
-    sentOk: "جزاک اللہ خیر! آپ کا پیغام موصول ہو گیا ہے۔",
+    sentOk: "جزاک اللہ خیر {name}! آپ کا پیغام اور دعائیں موصول ہو گئی ہیں۔",
     sentErr: "کچھ غلط ہو گیا، براہِ کرم دوبارہ کوشش کریں۔",
     closingBig: "ہمیں ان شاء اللہ آپ کی آمد کا بے صبری سے انتظار رہے گا!",
     coupleFull: "حارث رعین اور صفیہ رعین",
@@ -614,6 +879,7 @@ const I18N = {
     cls: "lang-hi",
     pageTitle: "हारिश राईन एवं सोफिया राईन — सगाई निमंत्रण",
     loaderText: "आपका निमंत्रण तैयार हो रहा है",
+    pwaInstallText: "ऐप इंस्टॉल करें",
     coverNames: "हारिश राईन एवं सोफिया राईन",
     coverTap: "निमंत्रण खोलने के लिए यहाँ क्लिक करें",
     heroIntro: "अल्लाह के नाम से जो अत्यंत कृपालु और दयावान है\nहम आपका हार्दिक स्वागत करते हैं पावन सगाई समारोह में",
@@ -643,6 +909,7 @@ const I18N = {
     venueAddr: "गवर्नमेंट रेस्ट हाउस के पास, ग्वालियर - झांसी रोड, हाईवे, दतिया, मध्य प्रदेश 475661",
     mapsBtn: "गूगल मैप्स पर देखें",
     rsvpHeading: "उपस्थिति पुष्टि (RSVP)",
+    rsvpOffline: "आप अभी ऑफ़लाइन हैं। RSVP संदेश भेजने के लिए इंटरनेट कनेक्शन आवश्यक है।",
     lblName: "आपका नाम",
     phName: "अपना पूरा नाम लिखें",
     lblPhone: "मोबाइल नंबर",
@@ -655,7 +922,7 @@ const I18N = {
     phMsg: "अपनी शुभकामनाएं और दुआएं लिखें...",
     rsubmit: "संदेश भेजें",
     sending: "भेजा जा रहा है...",
-    sentOk: "जज़ाकल्लाह खैर! आपका संदेश सफलतापूर्वक भेज दिया गया है।",
+    sentOk: "जज़ाकल्लाह खैर, {name}! आपका संदेश और दुआएं प्राप्त हो गई हैं।",
     sentErr: "कुछ त्रुटि हुई, कृपया पुनः प्रयास करें।",
     closingBig: "हमें इंशाअल्लाह आपके साथ जश्न मनाने का बेसब्री से इंतज़ार रहेगा!",
     coupleFull: "हारिश राईन एवं सोफिया राईन",
@@ -678,6 +945,29 @@ addEventListener("load", () => setTimeout(() => document.getElementById("loader"
 /* ---- hearts watermark ---- */
 const heartSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg>';
 document.querySelector(".wm").innerHTML = ("<div>" + heartSVG + "</div>").repeat(12);
+
+/* ---- [FEATURE 3] Floating Golden Particles & Sparkles ---- */
+(function initGoldenParticles() {
+  const container = document.getElementById("goldenParticles");
+  if (!container) return;
+  const starSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z"/></svg>';
+  const count = 18;
+  const frag = document.createDocumentFragment();
+  for (let k = 0; k < count; k++) {
+    const el = document.createElement("span");
+    const isStar = k % 4 === 0;
+    el.className = "g-particle " + (isStar ? "star" : "dot");
+    if (isStar) el.innerHTML = starSVG;
+    el.style.left = ((k * 5.7 + 3) % 96) + "%";
+    el.style.setProperty("--sz", isStar ? (9 + (k % 3) * 2) + "px" : (3 + (k % 3)) + "px");
+    el.style.setProperty("--dur", (14 + (k % 7) * 2.2) + "s");
+    el.style.setProperty("--delay", "-" + ((k * 1.9) % 16) + "s");
+    el.style.setProperty("--drift", ((k % 2 === 0 ? 1 : -1) * (12 + (k % 4) * 6)) + "px");
+    el.style.setProperty("--op", isStar ? "0.45" : "0.38");
+    frag.appendChild(el);
+  }
+  container.appendChild(frag);
+})();
 
 /* ---- audio (sound on by default) ---- */
 const bgm = document.getElementById("bgm"), muteBtn = document.getElementById("mute");
@@ -720,7 +1010,7 @@ muteBtn.addEventListener("click", e => {
   }
 });
 
-/* ---- click-to-open card animation (once, no repeat, shows scroll down cue) ---- */
+/* ---- [FEATURE 2] Click-to-Open Envelope Card Animation ---- */
 const hero = document.getElementById("hero");
 const vid = document.getElementById("heroVid");
 const scrollCue = document.getElementById("scrollCue");
@@ -741,7 +1031,7 @@ hero.addEventListener("click", () => {
   enterFullscreen();
   setTimeout(() => {
     if (window.scrollY < 60) scrollCue.classList.add("show");
-  }, 1100);
+  }, 1250);
 });
 
 vid.addEventListener("ended", () => {
@@ -769,6 +1059,7 @@ function applyLang(lang) {
 
   document.title = t.pageTitle;
   document.getElementById("loaderText").textContent = t.loaderText;
+  document.getElementById("pwaInstallText").textContent = t.pwaInstallText;
   document.getElementById("coverNames").textContent = t.coverNames;
   document.getElementById("coverTap").textContent = t.coverTap;
   document.getElementById("heroIntro").textContent = t.heroIntro;
@@ -797,6 +1088,7 @@ function applyLang(lang) {
   document.getElementById("venueAddr").textContent = t.venueAddr;
   document.getElementById("mapsBtn").textContent = t.mapsBtn;
   document.getElementById("rsvpHeading").textContent = t.rsvpHeading;
+  document.getElementById("rsvpOfflineNote").textContent = t.rsvpOffline;
   document.getElementById("lblName").textContent = t.lblName;
   document.getElementById("rname").placeholder = t.phName;
   document.getElementById("lblPhone").textContent = t.lblPhone;
@@ -829,9 +1121,14 @@ document.querySelectorAll(".lang-btn").forEach(btn => {
   });
 });
 
-/* ---- reveal ---- */
+/* ---- [FEATURE 4] Premium Section & Reveal Transitions ---- */
 const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  if (e.isIntersecting) {
+    e.target.classList.add("in");
+    const sec = e.target.closest(".section");
+    if (sec) sec.classList.add("sec-visible");
+    io.unobserve(e.target);
+  }
 }), { threshold: .15 });
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
@@ -846,7 +1143,39 @@ setInterval(() => {
   document.getElementById("cd-s").textContent = pad(Math.floor(diff / 1e3) % 60);
 }, 1000);
 
-/* ---- scratch ---- */
+/* ---- [FEATURE 6] Scratch Card & Animated Heart Reveal ---- */
+function triggerHeartReveal() {
+  const holder = document.getElementById("scratchHolder");
+  const burst = document.getElementById("heartBurst");
+  if (!holder || !burst) return;
+  holder.classList.add("revealed");
+  burst.innerHTML = "";
+  const miniHeart = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg>';
+  const vectors = [
+    { tx: "-72px", ty: "-68px", rot: "-18deg", d: "0s" },
+    { tx: "74px", ty: "-64px", rot: "20deg", d: ".08s" },
+    { tx: "-88px", ty: "-12px", rot: "-24deg", d: ".14s" },
+    { tx: "88px", ty: "-10px", rot: "22deg", d: ".18s" },
+    { tx: "-46px", ty: "-96px", rot: "-12deg", d: ".22s" },
+    { tx: "48px", ty: "-94px", rot: "14deg", d: ".26s" },
+    { tx: "0px", ty: "-108px", rot: "0deg", d: ".12s" },
+    { tx: "-58px", ty: "54px", rot: "-15deg", d: ".2s" },
+    { tx: "60px", ty: "52px", rot: "16deg", d: ".24s" }
+  ];
+  vectors.forEach((v, idx) => {
+    const item = document.createElement("span");
+    item.className = "burst-heart";
+    item.innerHTML = miniHeart;
+    item.style.setProperty("--tx", v.tx);
+    item.style.setProperty("--ty", v.ty);
+    item.style.setProperty("--rot", v.rot);
+    item.style.setProperty("--d", v.d);
+    if (idx % 2 === 1) item.style.color = "#355a8c";
+    burst.appendChild(item);
+  });
+  setTimeout(() => { burst.innerHTML = ""; }, 2300);
+}
+
 (function () {
   const c = document.getElementById("scratch"), ctx = c.getContext("2d");
   let drawn = false, down = false, last = null, cleared = 0, revealed = false;
@@ -890,10 +1219,11 @@ setInterval(() => {
     const d = ctx.getImageData(0, 0, c.width, c.height).data;
     let t = 0, n = 0;
     for (let i = 3; i < d.length; i += 40) { n++; if (d[i] < 40) t++; }
-    if (t / n > .55) {
+    if (t / n > .55 && !revealed) {
       revealed = true;
       c.style.transition = "opacity .6s"; c.style.opacity = "0";
       setTimeout(() => c.style.pointerEvents = "none", 600);
+      triggerHeartReveal();
     }
   };
   const start = e => { down = true; last = null; scratch(e); };
@@ -946,6 +1276,77 @@ window.addEventListener("beforeunload", e => {
   e.returnValue = "Save the Date: Harish Rayeen & Sofiya Rayeen Engagement on 6 December 2026 at 7:00 PM (After Maghrib)!";
 });
 
+/* ---- [FEATURE 5] Confetti Celebration After RSVP ---- */
+function launchConfetti() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const existing = document.getElementById("confettiCanvas");
+  if (existing) existing.remove();
+  const canvas = document.createElement("canvas");
+  canvas.id = "confettiCanvas";
+  canvas.setAttribute("aria-hidden", "true");
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext("2d");
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const resize = () => {
+    canvas.width = innerWidth * dpr;
+    canvas.height = innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  resize();
+
+  const colors = ["#c5a059", "#e5cc92", "#f5ebd6", "#fffff0", "#355a8c"];
+  const pieces = Array.from({ length: 85 }, (_, idx) => ({
+    x: innerWidth * (0.15 + Math.random() * 0.7),
+    y: innerHeight * 0.42 + (Math.random() - 0.5) * 40,
+    vx: (Math.random() - 0.5) * 9,
+    vy: -6 - Math.random() * 7,
+    w: 6 + Math.random() * 5,
+    h: 9 + Math.random() * 6,
+    rot: Math.random() * 360,
+    vRot: (Math.random() - 0.5) * 10,
+    color: colors[idx % colors.length],
+    alpha: 1
+  }));
+
+  const start = performance.now();
+  const duration = 3400;
+  function tick(now) {
+    const elapsed = now - start;
+    if (elapsed >= duration) {
+      canvas.remove();
+      return;
+    }
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    const fade = elapsed > 2400 ? Math.max(0, 1 - (elapsed - 2400) / 1000) : 1;
+    for (const p of pieces) {
+      p.vy += 0.22;
+      p.vx *= 0.99;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vRot;
+      ctx.save();
+      ctx.globalAlpha = fade;
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rot * Math.PI) / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+/* ---- [FEATURE 9] Offline Connectivity Indicator for RSVP ---- */
+const offlineNoteEl = document.getElementById("rsvpOfflineNote");
+function updateOnlineStatus() {
+  if (!offlineNoteEl) return;
+  offlineNoteEl.hidden = navigator.onLine;
+}
+window.addEventListener("online", updateOnlineStatus);
+window.addEventListener("offline", updateOnlineStatus);
+updateOnlineStatus();
+
 /* ---- RSVP connected to Web3Forms API ---- */
 document.getElementById("rsvp").addEventListener("submit", async e => {
   e.preventDefault();
@@ -953,6 +1354,13 @@ document.getElementById("rsvp").addEventListener("submit", async e => {
   const btn = document.getElementById("rsubmit");
   const note = document.getElementById("rnote");
   const t = I18N[currentLang];
+  const guestName = document.getElementById("rname").value.trim();
+
+  if (!navigator.onLine) {
+    updateOnlineStatus();
+    note.textContent = t.rsvpOffline;
+    return;
+  }
 
   btn.disabled = true;
   btn.textContent = t.sending;
@@ -965,19 +1373,54 @@ document.getElementById("rsvp").addEventListener("submit", async e => {
       body: formData
     });
     const json = await res.json();
-    if (json.success) {
-      note.textContent = t.sentOk;
+    if (res.ok && json.success) {
+      note.textContent = t.sentOk.replace("{name}", guestName);
       form.reset();
+      launchConfetti();
     } else {
       note.textContent = t.sentErr;
     }
   } catch (err) {
-    note.textContent = t.sentErr;
+    note.textContent = navigator.onLine ? t.sentErr : t.rsvpOffline;
   } finally {
     btn.disabled = false;
     btn.textContent = t.rsubmit;
   }
 });
+
+/* ---- [FEATURE 7 & 9] PWA Install Prompt & Service Worker Registration ---- */
+let deferredInstallPrompt = null;
+const pwaInstallBtn = document.getElementById("pwaInstallBtn");
+
+window.addEventListener("beforeinstallprompt", e => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  if (pwaInstallBtn) pwaInstallBtn.hidden = false;
+});
+
+if (pwaInstallBtn) {
+  pwaInstallBtn.addEventListener("click", async e => {
+    e.stopPropagation();
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    const choice = await deferredInstallPrompt.userChoice;
+    if (choice && choice.outcome === "accepted") {
+      pwaInstallBtn.hidden = true;
+    }
+    deferredInstallPrompt = null;
+  });
+}
+
+window.addEventListener("appinstalled", () => {
+  if (pwaInstallBtn) pwaInstallBtn.hidden = true;
+  deferredInstallPrompt = null;
+});
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
 </script>
 </body>
 </html>
